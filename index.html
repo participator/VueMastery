@@ -25,14 +25,21 @@
                 <p v-if="inStock && inventory > 10">In Stock</p>
                 <p v-else-if="inStock && inventory <= 10 && inventory > 0">Almost Sold Out!</p>
                 <p v-else>Out of Stock <span v-show="!inStock">∅</span></p>
+
                 <ul>
                     <li v-for="detail in details">{{ detail }}</li>
                 </ul>
+                
                 <div v-for="variant in variants" v-bind:key="variant.variantId">
-                    <p>{{ variant.variantColor }}</p>
+                    <p v-on:mouseover="updateImage(variant.variantImage)">
+                        {{ variant.variantColor }}
+                    </p>
                 </div>
-                <div v-for="size in sizes" v-bind:key="size.id">
-                    <p>{{ size.name }}</p>
+                
+                <div>
+                    <button v-on:click="addToCart">Add to Cart</button>
+                    <button class="button_red" v-show="cart > 0" v-on:click= "removeFromCart">Remove from Cart</button>
+                    <p class="cart">Cart ({{ cart }})</p>
                 </div>
             </div>
         </div>

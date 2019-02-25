@@ -1,13 +1,14 @@
 var app = new Vue({
     el: '#app',
     data: {
-        description: 'The pair of socks to wear today.',
-        product: 'Socks',
         altText: 'A pair of socks',
+        cart: 0,
+        description: 'The pair of socks to wear today.',
         image: 'https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg',
         inStock: true,
         inventory: 35,
         onSale: true,
+        product: 'Socks',
         details: ['80% cotton', '20% polyester', 'Gender-neutral'],
         sizes: [
             {
@@ -38,12 +39,25 @@ var app = new Vue({
         variants: [
             {
                 variantId: 2234,
-                variantColor: 'green'
+                variantColor: 'green',
+                variantImage: 'https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg'
             },
             {
                 variantId: 2235,
-                variantColor: 'blue'
+                variantColor: 'blue',
+                variantImage: 'https://www.vuemastery.com/images/challenges/vmSocks-blue-onWhite.jpg'
             }
         ]
+    },
+    methods: {
+        addToCart() {
+            this.cart++;
+        },
+        removeFromCart() {
+            this.cart--;
+        },
+        updateImage(currentImage) {
+            this.image = currentImage;
+        }
     }
 })

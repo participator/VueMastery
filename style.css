@@ -59,7 +59,11 @@ body {
     height: 40px;
     width: 100px;
     font-size: 14px;
-  } 
+  }
+
+  .button_red {
+    background-color: red;
+  }
   
   .disabledButton {
     background-color: #d8d8d8;
