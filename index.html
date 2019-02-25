@@ -15,56 +15,8 @@
         <nav class="nav-bar"></nav>
     </header>
     <div id="app">
-        <div class="product">
-            <div class="product-image">
-                <img v-bind:src="image" v-bind:alt="altText">
-            </div>
-            <div class="product-info">
-                <h1>{{ title }}</h1>
-                <span class="product-special" v-show="onSale">On Sale!</span>
-                <p>{{ salePhrase }}</p>
-                <p v-if="!!inStock && variants[selectedVariant].variantQuantity > 10">In Stock</p>
-                <p v-else-if="!!inStock && variants[selectedVariant].variantQuantity <= 10 && variants[selectedVariant].variantQuantity > 0">
-                    Almost Sold Out!
-                </p>
-                <p 
-                    v-else
-                    v-bind:class="classObject"
-                >
-                    <span v-show="!!inStock">∅</span>
-                    Out of Stock 
-                </p>
-
-                <ul>
-                    <li v-for="detail in details">{{ detail }}</li>
-                </ul>
-                
-                <div class="color-box"
-                    v-for="(variant, index) in variants"
-                    v-bind:key="variant.variantId"
-                    v-bind:style="{ backgroundColor: variant.variantColor }"
-                    v-on:mouseover="updateProduct(index)"
-                >
-                </div>
-                
-                <div>
-                    <button 
-                        v-bind:class="{ disabledButton: !!!inStock }"
-                        v-bind:disabled="!!!inStock"
-                        v-on:click="addToCart">
-                        Add to Cart
-                    </button>
-                    <button 
-                        class="button_red"
-                        v-bind:class="{ disabledButton: cart <= 0 }"
-                        v-bind:disabled="cart <= 0"
-                        v-on:click= "removeFromCart">
-                        Remove from Cart
-                    </button>
-                    <p class="cart">Cart ({{ cart }})</p>
-                </div>
-            </div>
-        </div>
+        <product v-bind:premium="premiumRoot"></product>
+        <product-details v-bind:details="detailsRoot"></product-details>
     </div>
 
 </body>
