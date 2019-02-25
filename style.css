@@ -32,6 +32,11 @@ body {
     margin-top: 10px;
     width: 50%;
   }
+
+  .product-special {
+    color: red;
+    font-weight: bold;
+  }
   
   .color-box {
     width: 40px;
