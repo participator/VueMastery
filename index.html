@@ -22,8 +22,11 @@
             <div class="product-info">
                 <h1>{{ title }}</h1>
                 <span class="product-special" v-show="onSale">On Sale!</span>
-                <p v-if="!!inStock && inventory > 10">In Stock</p>
-                <p v-else-if="!!inStock && inventory <= 10 && inventory > 0">Almost Sold Out!</p>
+                <p>{{ salePhrase }}</p>
+                <p v-if="!!inStock && variants[selectedVariant].variantQuantity > 10">In Stock</p>
+                <p v-else-if="!!inStock && variants[selectedVariant].variantQuantity <= 10 && variants[selectedVariant].variantQuantity > 0">
+                    Almost Sold Out!
+                </p>
                 <p 
                     v-else
                     v-bind:class="classObject"

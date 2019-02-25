@@ -5,7 +5,6 @@ var app = new Vue({
         brand: 'Vue Mastery',
         cart: 0,
         description: 'The pair of socks to wear today.',
-        inventory: 35,
         onSale: true,
         product: 'Socks',
         details: ['80% cotton', '20% polyester', 'Gender-neutral'],
@@ -68,14 +67,18 @@ var app = new Vue({
     },
     computed: {
         title() {
-            if (this.onSale)
-                return `${this.brand} ${this.product}`;
+            return `${this.brand} ${this.product}`;
         },
         image() {
             return this.variants[this.selectedVariant].variantImage;
         },
         inStock() {
             return this.variants[this.selectedVariant].variantQuantity;
+        },
+        salePhrase() {
+            if (this.onSale)
+                return `${this.brand} says hurry while ${this.variants[this.selectedVariant].variantColor} 
+                ${this.product.toLowerCase()} last!`
         }
     }
 })
