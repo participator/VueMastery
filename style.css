@@ -101,10 +101,6 @@ body {
     text-decoration: line-through;
   }
 
-  .redBackground {
-    background-color: orangered;
-  }
-
-  .blueText {
-    color: skyblue;
+  .redText {
+    color: orangered;
   }
