@@ -100,3 +100,11 @@ body {
   .outOfStock {
     text-decoration: line-through;
   }
+
+  .redBackground {
+    background-color: red;
+  }
+
+  .blueText {
+    color: blue;
+  }
