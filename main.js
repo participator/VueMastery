@@ -48,10 +48,7 @@ var app = new Vue({
                 variantImage: 'https://www.vuemastery.com/images/challenges/vmSocks-blue-onWhite.jpg'
             }
         ],
-        classObject: {
-            redBackground: false,
-            blueText: true,
-        }
+        arrayObject: ['redBackground', 'blueText']
     },
     methods: {
         addToCart() {
